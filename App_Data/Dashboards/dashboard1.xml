@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard>
+  <Title Text="New Dashboard" />
+  <DataSources>
+    <ObjectDataSource Name="ObjectDataSource" ComponentName="objectDataSource1">
+      <DataSource Type="ProductSales, App_Code.yxgxtnh2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" />
+      <DataMember>GetProductSales</DataMember>
+    </ObjectDataSource>
+  </DataSources>
+  <Items>
+    <Grid ComponentName="gridDashboardItem1" Name="Grid 1" DataSource="objectDataSource1">
+      <CustomProperties>
+        <EnabledColorHeader>true</EnabledColorHeader>
+        <backgroundColorHeader>rgba(50, 50, 255, 0.24)</backgroundColorHeader>
+        <fontColorHeader>red</fontColorHeader>
+      </CustomProperties>
+      <DataItems>
+        <Dimension DataMember="Product" DefaultId="DataItem1" />
+        <Measure DataMember="Sales" DefaultId="DataItem2" />
+        <Dimension DataMember="OrderID" DefaultId="DataItem0" />
+      </DataItems>
+      <GridColumns>
+        <GridDimensionColumn>
+          <Dimension DefaultId="DataItem0" />
+        </GridDimensionColumn>
+        <GridDimensionColumn>
+          <Dimension DefaultId="DataItem1" />
+        </GridDimensionColumn>
+        <GridMeasureColumn>
+          <Measure DefaultId="DataItem2" />
+        </GridMeasureColumn>
+      </GridColumns>
+      <GridOptions />
+    </Grid>
+    <Chart ComponentName="chartDashboardItem1" Name="Chart 1" DataSource="objectDataSource1">
+      <CustomProperties>
+        <EnabledColorHeader>true</EnabledColorHeader>
+        <backgroundColorHeader>rgba(250, 219, 97, 1)</backgroundColorHeader>
+        <fontColorHeader>blue</fontColorHeader>
+      </CustomProperties>
+      <DataItems>
+        <Measure DataMember="Sales" DefaultId="DataItem0" />
+        <Dimension DataMember="Product" DefaultId="DataItem1" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Pane 1">
+          <Series>
+            <Simple>
+              <Value DefaultId="DataItem0" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup>
+      <LayoutItem DashboardItem="gridDashboardItem1" />
+      <LayoutItem DashboardItem="chartDashboardItem1" Weight="1.1810109289617485" />
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>
